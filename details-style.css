@@ -1,0 +1,159 @@
+:root {
+  --brand-primary: #0768ac;
+  --brand-secondary: #03c180;
+  --bg_default: #ffffff;
+  --bg_body: #f0f9ff;
+  --lines-color: #dddddd;
+  --body-text: #333333;
+  --heart-color: #dc143c;
+  --icon-color: #e59b1e;
+}
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+.details-container {
+  background-color: var(--bg_body);
+}
+.card-details-container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 57%;
+  top: 24%;
+}
+.card-details {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: var(--bg_default);
+  box-shadow: 0px 0px 2px var(--body-text);
+}
+
+.card-img {
+  height: 22vh;
+  max-width: 100%;
+  object-fit: cover;
+}
+.img-details {
+  width: 99%;
+  height: 100%;
+  padding: 2px 1px;
+  object-fit: fill;
+}
+
+.card-auther-by {
+  margin: 20px 25px 2px 25px;
+  font-size: 13px;
+}
+.card-box {
+  border: 1px solid var(--lines-color);
+  padding: 0 20px;
+  margin: 7px 25px 20px 25px;
+}
+.card-box-q {
+  font-size: 12px;
+  font-weight: 700;
+  color: #323232;
+}
+.card-box-btn {
+  background-color: var(--brand-secondary);
+  color: var(--bg_default);
+  border: 0px;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  font-size: 16px;
+}
+.fav-heart {
+  display: flex;
+  margin-left: 6px;
+  transform: scale(1.1);
+}
+.card-box-footer {
+  font-size: 9px;
+  color: #9b9b9b;
+  text-align: center;
+}
+
+.info-container {
+  background-color: var(--body-text);
+  display: flex;
+}
+.info {
+  width: 30%;
+  margin: 10px 0px;
+  margin-left: 25%;
+}
+.course-details-type {
+  color: var(--brand-secondary);
+  font-size: 13px;
+  height: 10px;
+}
+.course-details-title {
+  color: var(--bg_default);
+  font-size: 18px;
+  height: 15px;
+}
+.star-icon-details {
+  color: var(--icon-color);
+  margin-right: -6px;
+  transform: scale(0.8);
+}
+.course-details-description {
+  color: var(--bg_default);
+  font-size: 13px;
+  margin-top: 10px;
+}
+.sub-topics-container {
+  display: flex;
+}
+.sub-topics-table {
+  width: 30%;
+  margin: 15px 0px;
+  margin-left: 25%;
+  box-shadow: 0px 0px 15px var(--lines-color);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 400;
+  background-color: var(--bg_default);
+  border-radius: 5px;
+}
+td,
+th {
+  border: 0.5px solid var(--lines-color);
+  text-align: left;
+  padding: 10px 18px;
+  margin-left: 90px;
+}
+th {
+  font-size: 18px;
+}
+td {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  margin: auto;
+}
+.checkmark-circle-outline {
+  color: var(--brand-secondary);
+  margin-right: 14px;
+  transform: scale(1.3);
+}
+.footer-container {
+  display: flex;
+  justify-content: center;
+}
+.footer-p {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+.heart {
+  color: var(--heart-color);
+  display: flex;
+}

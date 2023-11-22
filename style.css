@@ -1,0 +1,237 @@
+:root {
+  --brand-primary: #0768ac;
+  --brand-secondary: #03c180;
+  --bg_default: #ffffff;
+  --bg_body: #f0f9ff;
+  --lines-color: #dddddd;
+  --body-text: #333333;
+  --heart-color: #dc143c;
+}
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+.top-flex-container {
+  display: flex;
+  justify-content: center;
+}
+.container-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.web-topics {
+  color: var(--brand-primary);
+}
+.bar-btns {
+  display: flex;
+  flex-direction: row;
+}
+.btn-fav,
+.btn-dark {
+  background-color: var(--bg_default);
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.3); /* Adjust the color and opacity as needed */
+  padding: 8px 12px;
+  margin-left: 5px;
+  border-style: solid;
+
+  font-weight: 400;
+  border-radius: 5px;
+}
+.dark-mode-icon,
+.fav-icon {
+  margin-right: 5px;
+}
+
+.courses-layout {
+  background-color: var(--bg_body);
+  display: flex;
+  flex-direction: column;
+}
+
+/*** Greeen Part ***/
+.welcome-green-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg_default);
+  height: 110px;
+  position: relative;
+  overflow: hidden;
+}
+.welcoming-container {
+  margin-top: 20px;
+}
+.h2-welcoming {
+  color: var(--brand-secondary);
+}
+.h2-welcoming,
+.p-welcoming {
+  height: 13px;
+}
+.green-left-side {
+  position: absolute;
+  left: -100px;
+  top: -45%;
+  height: 69%;
+  width: 110%;
+  background: linear-gradient(
+    to right,
+    var(--brand-primary) 11%,
+    var(--brand-secondary)
+  );
+  transform: rotate(-2.55deg);
+  z-index: 3;
+}
+.green-right-side {
+  position: absolute;
+  top: -50%;
+  height: 80px;
+  width: 100%;
+  right: -100px;
+  background: linear-gradient(var(--brand-secondary), var(--brand-secondary));
+  transform: rotate(3.5deg);
+}
+/******Search bar*******/
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  width: 95%;
+
+  border: 5px;
+}
+
+.input-part {
+  width: 72%;
+  background-color: var(--bg_default);
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 5px 5px 20px var(--lines-color);
+}
+.search-engine {
+  width: 97%;
+  border: 0;
+  padding: 10px 2px;
+  margin-left: 10px;
+}
+.search-engine:focus {
+  border-color: transparent;
+  outline: none;
+}
+.search-input {
+  display: flex;
+  align-items: center;
+}
+.search-icon {
+  margin-left: 10px;
+}
+
+.sort-filter-parts {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg_default);
+  width: 14%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 20px var(--lines-color);
+  padding: 1px 10px;
+}
+
+.drop-down {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+}
+.chevron-down {
+  display: flex;
+  align-items: center;
+}
+.end-of-search-bar {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+/**********24 Web topics**************/
+.container-num-topics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.num-topics {
+  width: 95%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+/***/
+.container {
+  display: flex;
+  justify-content: center;
+}
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 95%;
+  justify-content: space-between;
+}
+.card-container {
+  width: 18%;
+  height: 320px;
+  background-color: var(--bg_default);
+
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px var(--lines-color);
+  transition: 0.6s;
+  margin-top: 25px;
+}
+
+.card-img {
+  height: 22vh;
+  max-width: 100%;
+  object-fit: cover;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit: fill;
+}
+.course-type {
+  font-weight: 400;
+  padding-left: 20px;
+  font-size: 13px;
+}
+.title {
+  font-weight: 600;
+  padding-left: 20px;
+  margin-top: -15px;
+}
+.author-name {
+  font-weight: 200;
+  padding-left: 20px;
+  font-size: 12px;
+}
+.stars-icon {
+  padding-left: 20px;
+  margin-top: 27px;
+  margin-bottom: 10px;
+}
+.star-icon {
+  color: #e59b1e;
+  margin-right: -3px;
+}
