@@ -50,7 +50,7 @@ body {
 }
 .card-box {
   border: 1px solid var(--lines-color);
-  padding: 0 20px;
+  padding: 0 12px;
   margin: 7px 25px 20px 25px;
 }
 .card-box-q {
@@ -64,7 +64,7 @@ body {
   border: 0px;
   display: flex;
   align-items: center;
-  padding: 10px 12px;
+  padding: 10px 6px;
   font-size: 16px;
 }
 .fav-heart {

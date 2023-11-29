@@ -61,7 +61,7 @@
           <div class="welcoming-container">
             <h2 class="h2-welcoming">Welcome to our website!</h2>
             <p class="p-welcoming">
-              We have a new design that's fresh,modern, and easy to use.
+              We have a new design that's fresh, modern, and easy to use.
             </p>
           </div>
         </div>
@@ -81,33 +81,24 @@
                   placeholder="Search the website..."
                 />
               </div>
-
-              <div class="sort-filter-parts">
-                <span class="filter-sort-by"> Sort by: </span>
-
-                <div class="drop-down">
-                  <p>Default</p>
-                  <span>
-                    <ion-icon
-                      name="chevron-down-outline"
-                      class="chevron-down"
-                    ></ion-icon>
-                  </span>
-                </div>
+              <div class="sort-filter-parts sort">
+                <label class="dropdown-label">&nbsp;Sort by:</label>
+                <select class="dropdown-btn" name="filter-options">
+                  <option value="option1">Default</option>
+                  <option value="option2">Most visited</option>
+                  <option value="option3">Newest added</option>
+                </select>
               </div>
 
               <div class="sort-filter-parts end-of-search-bar">
-                <span class="filter-sort-by"> Filter by: </span>
-
-                <div class="drop-down">
-                  <p>Default</p>
-                  <span>
-                    <ion-icon
-                      name="chevron-down-outline"
-                      class="chevron-down"
-                    ></ion-icon>
-                  </span>
-                </div>
+                <label class="dropdown-label">&nbsp;Filter by:</label>
+                <select class="dropdown-btn" name="filter-options">
+                  <option value="option1">Default</option>
+                  <option value="option2">Course field</option>
+                  <option value="option3">Course title</option>
+                  <option value="option3">Course rate</option>
+                  <option value="option3">Course auther</option>
+                </select>
               </div>
             </div>
           </div>
@@ -322,7 +313,7 @@
                   <div class="author-name"><p>Author: William Lee</p></div>
                 </div>
               </a>
-              <!--/*NEW*/-->
+              <!--/*Newest added*/-->
               <a class="card-container" href="./details.html">
                 <div class="card-img">
                   <img class="img" src="./Logos/ruby.jpeg" alt="HTML Img" />
