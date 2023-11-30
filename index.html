@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./details-responsive.css" />
+    <link rel="stylesheet" href="./common-responsive.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,6 +33,21 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script>
+       function handleDarkMode(){
+        console.log("inside dark mode");
+
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const additionalElements = document.querySelectorAll('btn-dark');
+
+
+        darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        additionalElements.querySelectorAll("btn-dark").classList.toggle('dark-mode');
+      })
+    }
+    </script>
 
     <title>Courses Website</title>
   </head>
@@ -39,16 +56,26 @@
       <header>
         <div class="top-flex-container">
           <div class="container-bar">
-            <h2 class="web-topics">Web Topics</h2>
+            <a href="index.html">
+              <h2 class="web-topics">Web Topics</h2>
+            </a>
             <div class="bar-btns">
-              <button class="btn-dark">
-                <ion-icon class="dark-mode-icon" name="moon-outline">
+              <button class="btn-dark" id="darkModeToggle">
+                <span class="btn-icon">
+                  <ion-icon class="dark-mode-icon" name="moon-outline">
+                </span>
                 </ion-icon>
-                Dark Mode
+                <span class="btn-text" onclick="handleDarkMode()">
+                  Dark Mode
+                </span>
               </button>
               <button class="btn-fav">
+                <span class="btn-icon">
                 <ion-icon class="fav-icon" name="heart-outline"></ion-icon>
+                </span>
+                <span class="btn-text">
                 Favourites
+                </span>
               </button>
             </div>
           </div>

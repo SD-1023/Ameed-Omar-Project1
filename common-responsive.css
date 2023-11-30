@@ -1,0 +1,23 @@
+@media screen and (max-width: 650px) {
+  .web-topics {
+    font-size: 13px;
+    margin: 16px 0;
+  }
+  .web-topics-details {
+    font-size: 16px;
+  }
+  .btn-text {
+    display: none;
+  }
+  .btn-icon {
+    display: inline-block;
+  }
+  .btn-fav,
+  .btn-dark {
+    padding: 4px 8px;
+  }
+  .dark-mode-icon,
+  .fav-icon {
+    margin-right: 2px;
+  }
+}

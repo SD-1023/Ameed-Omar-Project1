@@ -6,11 +6,30 @@
   --lines-color: #dddddd;
   --body-text: #333333;
   --heart-color: #dc143c;
+
+  /**Dark mode */
+
+  /* --brand-prdimary: #0768ac;
+  --brand-secondary: #03c180;
+  --bg_default: #1a1a1a;
+  --bg_body: #282828;
+  --lines-color: #000000;
+  --body-text: #ededed;
+  --heart-color: #dc143c; */
 }
+
 body {
   font-family: "Nunito Sans", sans-serif;
   margin: 0;
   box-sizing: border-box;
+}
+body.dark-mode {
+  background-color: #282828;
+}
+
+#additionalElements {
+  background-color: #282828;
+  color: #ededed;
 }
 .top-flex-container {
   display: flex;
@@ -209,14 +228,10 @@ body {
   justify-content: center;
 }
 .cards-container {
-  /* display: flex; */
-  /* flex-direction: row;
-  flex-wrap: wrap; */
   width: 95%;
-  /* justify-content: space-between; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 17rem));
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 8px;
 }
 a {
