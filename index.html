@@ -34,19 +34,20 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
     <script>
-       function handleDarkMode(){
+      function handleDarkMode() {
         console.log("inside dark mode");
 
-        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeToggle = document.getElementById("darkModeToggle");
         const body = document.body;
-        const additionalElements = document.querySelectorAll('btn-dark');
+        const additionalElements = document.querySelectorAll("btn-dark");
 
-
-        darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        additionalElements.querySelectorAll("btn-dark").classList.toggle('dark-mode');
-      })
-    }
+        darkModeToggle.addEventListener("click", () => {
+          document.body.classList.toggle("dark-mode");
+          additionalElements
+            .querySelectorAll("btn-dark")
+            .classList.toggle("dark-mode");
+        });
+      }
     </script>
 
     <title>Courses Website</title>
@@ -54,35 +55,33 @@
   <body>
     <div>
       <header>
-        <div class="top-flex-container">
-          <div class="container-bar">
+        <div class="top-flex-container flex justify-center">
+          <div class="container-bar global-position flex align-center">
             <a href="index.html">
               <h2 class="web-topics">Web Topics</h2>
             </a>
             <div class="bar-btns">
-              <button class="btn-dark" id="darkModeToggle">
+              <button class="btn-dark flex align-center" id="darkModeToggle">
                 <span class="btn-icon">
                   <ion-icon class="dark-mode-icon" name="moon-outline">
+                  </ion-icon>
                 </span>
-                </ion-icon>
                 <span class="btn-text" onclick="handleDarkMode()">
                   Dark Mode
                 </span>
               </button>
-              <button class="btn-fav">
+              <button class="btn-fav flex align-center">
                 <span class="btn-icon">
-                <ion-icon class="fav-icon" name="heart-outline"></ion-icon>
+                  <ion-icon class="fav-icon" name="heart-outline"></ion-icon>
                 </span>
-                <span class="btn-text">
-                Favourites
-                </span>
+                <span class="btn-text"> Favourites </span>
               </button>
             </div>
           </div>
         </div>
       </header>
       <main>
-        <div class="welcome-green-part">
+        <div class="welcome-green-part flex justify-center align-center">
           <div class="green-left-side"></div>
           <div class="green-right-side"></div>
           <div class="welcoming-container">
@@ -94,10 +93,13 @@
         </div>
 
         <div class="courses-layout">
-          <div class="search-container">
+          <div class="search-container flex justify-center">
             <div class="search-bar">
-              <div class="input-part">
-                <label for="search-input" class="search-input">
+              <div class="input-part flex align-center">
+                <label
+                  for="search-input"
+                  class="search-input flex align-center"
+                >
                   <ion-icon
                     class="search-icon"
                     name="search-outline"
@@ -129,19 +131,23 @@
               </div>
             </div>
           </div>
-          <div class="container-num-topics">
-            <div class="num-topics"><h2>"24" Web Topics Found</h2></div>
+          <div class="container-num-topics flex justify-center align-center">
+            <div class="num-topics global-position flex align-center">
+              <h2>"24" Web Topics Found</h2>
+            </div>
           </div>
-          <div class="container">
-            <div class="cards-container">
+          <div class="container flex justify-center">
+            <div class="cards-container global-position">
               <a class="card-container" href="./details.html">
                 <div>
                   <div class="card-img">
                     <img class="img" src="./Logos/html.png" alt="HTML Img" />
                   </div>
                   <div class="card-bottom-content">
-                    <h1 class="course-field">Web Development Languages</h1>
-                    <h1 class="course-title">HTML</h1>
+                    <h1 class="course-field overflow-ellipsis">
+                      Web Development Languages
+                    </h1>
+                    <h1 class="course-title overflow-ellipsis">HTML</h1>
 
                     <div class="stars-icon">
                       <ion-icon class="star-icon" name="star"></ion-icon>
@@ -154,7 +160,9 @@
                       ></ion-icon>
                     </div>
 
-                    <div class="author-name"><p>Author: Sarah Smith</p></div>
+                    <p class="author-name overflow-ellipsis">
+                      Author: Sarah Smith
+                    </p>
                   </div>
                 </div>
               </a>
@@ -164,8 +172,10 @@
                     <img class="img" src="./Logos/css.webp" alt="HTML Img" />
                   </div>
                   <div class="card-bottom-content">
-                    <h1 class="course-field">Web Development Languages</h1>
-                    <h1 class="course-title">CSS</h1>
+                    <h1 class="course-field overflow-ellipsis">
+                      Web Development Languages
+                    </h1>
+                    <h1 class="course-title overflow-ellipsis">CSS</h1>
                     <div class="stars-icon">
                       <ion-icon class="star-icon" name="star"></ion-icon>
                       <ion-icon class="star-icon" name="star"></ion-icon>
@@ -189,8 +199,10 @@
                   />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field">Web Development Languages</h1>
-                  <h1 class="course-title">JavaScript</h1>
+                  <h1 class="course-field overflow-ellipsis">
+                    Web Development Languages
+                  </h1>
+                  <h1 class="course-title overflow-ellipsis">JavaScript</h1>
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -207,11 +219,11 @@
                   <img class="img" src="./Logos/jquery.png" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field">
+                  <h1 class="course-field overflow-ellipsis">
                     Frontend Frameworks and libraries
                   </h1>
 
-                  <h1 class="course-title">jQuery</h1>
+                  <h1 class="course-title overflow-ellipsis">jQuery</h1>
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -227,10 +239,10 @@
                   <img class="img" src="./Logos/angular.png" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field">
+                  <h1 class="course-field overflow-ellipsis">
                     Frontend Frameworks and libraries
                   </h1>
-                  <h1 class="course-title">Angular</h1>
+                  <h1 class="course-title overflow-ellipsis">Angular</h1>
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -246,11 +258,11 @@
                   <img class="img" src="./Logos/react.webp" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field">
+                  <h1 class="course-field overflow-ellipsis">
                     Frontend Frameworks and libraries
                   </h1>
 
-                  <h1 class="course-title">React</h1>
+                  <h1 class="course-title overflow-ellipsis">React</h1>
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -267,10 +279,10 @@
                   <img class="img" src="./Logos/vuejs.jpeg" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field">
+                  <h1 class="course-field overflow-ellipsis">
                     Frontend Frameworks and libraries
                   </h1>
-                  <h1 class="course-title">Vue.js</h1>
+                  <h1 class="course-title overflow-ellipsis">Vue.js</h1>
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -287,9 +299,11 @@
                   <img class="img" src="./Logos/nodejs.webp" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field">Backend Frameworks and libraries</h1>
+                  <h1 class="course-field overflow-ellipsis">
+                    Backend Frameworks and libraries
+                  </h1>
 
-                  <h1 class="course-title">Node.js</h1>
+                  <h1 class="course-title overflow-ellipsis">Node.js</h1>
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -310,8 +324,10 @@
                   />
                 </div>
                 <div class="card-bottom-content">
-                  <p class="course-field">Backend Frameworks and libraries</p>
-                  <h1 class="course-title">Express.js</h1>
+                  <p class="course-field overflow-ellipsis">
+                    Backend Frameworks and libraries
+                  </p>
+                  <h1 class="course-title overflow-ellipsis">Express.js</h1>
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -328,8 +344,10 @@
                   <img class="img" src="./Logos/ruby.jpeg" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field">Backend Frameworks and libraries</h1>
-                  <h1 class="course-title">Ruby on Rails</h1>
+                  <h1 class="course-field overflow-ellipsis">
+                    Backend Frameworks and libraries
+                  </h1>
+                  <h1 class="course-title overflow-ellipsis">Ruby on Rails</h1>
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -346,8 +364,10 @@
                   <img class="img" src="./Logos/ruby.jpeg" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field">Backend Frameworks and libraries</h1>
-                  <h1 class="course-title">Ruby on Rails</h1>
+                  <h1 class="course-field overflow-ellipsis">
+                    Backend Frameworks and libraries
+                  </h1>
+                  <h1 class="course-title overflow-ellipsis">Ruby on Rails</h1>
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -364,8 +384,8 @@
       </main>
 
       <footer>
-        <div class="footer-container">
-          <p class="footer-content">
+        <div class="footer-container flex justify-center">
+          <p class="footer-content flex align-center">
             Developed with &nbsp;
             <span> <ion-icon name="heart" class="heart"></ion-icon></span
             >&nbsp;© 2023
