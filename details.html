@@ -37,26 +37,38 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script>
+      function handleDarkMode() {
+        console.log("inside dark mode");
+
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        darkModeToggle.onclick = function () {
+          document.body.classList.toggle("dark-theme");
+        };
+      }
+    </script>
 
     <title>Details Page</title>
   </head>
   <body>
     <div>
       <header>
-        <div class="top-flex-container">
-          <div class="container-bar">
+        <div class="top-flex-container flex justify-center">
+          <div class="container-bar global-position flex align-center">
             <a href="index.html">
               <h2 class="web-topics-details">Web Topics</h2>
             </a>
             <div class="bar-btns">
-              <button class="btn-dark">
+              <button class="btn-dark flex align-center" id="darkModeToggle">
                 <span class="btn-icon">
                   <ion-icon class="dark-mode-icon" name="moon-outline">
                   </ion-icon>
                 </span>
-                <span class="btn-text"> Dark Mode </span>
+                <span class="btn-text" onclick="handleDarkMode()">
+                  Dark Mode
+                </span>
               </button>
-              <button class="btn-fav">
+              <button class="btn-fav flex align-center">
                 <span class="btn-icon">
                   <ion-icon class="fav-icon" name="heart-outline"></ion-icon>
                 </span>
@@ -68,7 +80,7 @@
       </header>
 
       <main>
-        <div class="welcome-green-part">
+        <div class="welcome-green-part flex justify-center align-center">
           <div class="green-left-side"></div>
           <div class="green-right-side"></div>
           <div class="welcoming-container">
@@ -117,8 +129,11 @@
                 </div>
                 <div class="card-details-content">
                   <div class="card-auther-by">
-                    <strong>HTML</strong> by
-                    <a href="www.google.com">Sarah Smith</a>
+                    <span class="course-title-auther overflow-ellipsis">
+                      <strong> HTML </strong>
+                      by
+                      <a href="www.google.com">Sarah Smith</a>
+                    </span>
                   </div>
                   <div class="card-box">
                     <p class="card-box-q">Interested about this topic?</p>

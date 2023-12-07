@@ -8,22 +8,33 @@
   --heart-color: #dc143c;
   --icon-color: #e59b1e;
 }
+.dark-theme {
+  --brand-prdimary: #0768ac;
+  --brand-secondary: #03c180;
+  --bg_default: #1a1a1a;
+  --bg_body: #282828;
+  --lines-color: #000000;
+  --body-text: #ededed;
+  --heart-color: #dc143c;
+  --icon-color: #e59b1e;
+}
 body {
   font-family: "Nunito Sans", sans-serif;
   margin: 0;
 }
+
 .details-container {
   background-color: var(--bg_body);
 }
-/**Parent div**/
+/**Parent Container**/
 .content-container {
   position: relative;
 }
 /******Card Container*******/
 .card-details-container {
   position: absolute;
-  left: 58%;
-  top: 10%;
+  left: 55%;
+  top: 5%;
 }
 .card-details {
   width: 90%;
@@ -31,12 +42,11 @@ body {
   flex-direction: column;
   justify-content: center;
   margin-top: 20px;
-  background-color: var(--bg_default);
+  background-color: #ffffff;
   box-shadow: 0px 0px 3px rgba(51, 51, 51, 0.3);
 }
 
 .card-img {
-  height: 22vh;
   max-width: 100%;
   object-fit: cover;
 }
@@ -51,8 +61,16 @@ body {
   margin: 20px 25px 2px 25px;
   font-size: 13px;
 }
+
+.overflow-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
 .card-box {
-  border: 1px solid var(--lines-color);
+  border: 1px solid #dddddd;
   padding: 0 12px;
   margin: 7px 25px 20px 25px;
 }
@@ -63,7 +81,7 @@ body {
 }
 .card-box-btn {
   background-color: var(--brand-secondary);
-  color: var(--bg_default);
+  color: #ffffff;
   border: 0px;
   display: flex;
   align-items: center;
@@ -80,9 +98,10 @@ body {
   color: #9b9b9b;
   text-align: center;
 }
+
 /*******Course Information**********/
 .info-container {
-  background-color: var(--body-text);
+  background-color: #333333;
   display: flex;
 }
 .info {
@@ -103,7 +122,7 @@ body {
   height: 10px;
 }
 .course-details-title {
-  color: var(--bg_default);
+  color: #ededed;
   font-size: 18px;
   height: 15px;
 }
@@ -113,8 +132,8 @@ body {
   transform: scale(0.8);
 }
 .course-details-description {
-  color: var(--bg_default);
-  font-size: 13px;
+  color: #ededed;
+  font-size: 12px;
   margin-top: 10px;
 }
 
@@ -137,6 +156,7 @@ th {
   text-align: left;
   padding: 10px 18px;
   margin-left: 90px;
+  color: var(--body-text);
 }
 th {
   font-size: 18px;
