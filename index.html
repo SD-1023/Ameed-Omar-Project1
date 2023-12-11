@@ -71,7 +71,9 @@
           <div class="green-left-side"></div>
           <div class="green-right-side"></div>
           <div class="welcoming-container">
-            <h2 class="h2-welcoming">Welcome to our website!</h2>
+            <a href="index-dynamic.html">
+              <h2 class="h2-welcoming">Welcome to our website!</h2>
+            </a>
             <p class="p-welcoming">
               We have a new design that's fresh, modern, and easy to use.
             </p>
@@ -119,7 +121,7 @@
           </div>
           <div class="container-num-topics flex justify-center align-center">
             <div class="num-topics global-position flex align-center">
-              <h2>"24" Web Topics Found</h2>
+              <h2 class="num-topics">"24" Web Topics Found</h2>
             </div>
           </div>
           <div class="container flex justify-center">
@@ -130,10 +132,12 @@
                     <img class="img" src="./Logos/html.png" alt="HTML Img" />
                   </div>
                   <div class="card-bottom-content">
-                    <h1 class="course-field overflow-ellipsis">
-                      Web Development Languages
-                    </h1>
-                    <h1 class="course-title overflow-ellipsis">HTML</h1>
+                    <div class="card-text-container">
+                      <h1 class="course-field overflow-ellipsis">
+                        Web Development Languages
+                      </h1>
+                      <h1 class="course-title overflow-ellipsis">HTML</h1>
+                    </div>
 
                     <div class="stars-icon">
                       <ion-icon class="star-icon" name="star"></ion-icon>
@@ -153,27 +157,25 @@
                 </div>
               </a>
               <a class="card-container" href="./details.html">
-                <div>
-                  <div class="card-img">
-                    <img class="img" src="./Logos/css.webp" alt="HTML Img" />
-                  </div>
-                  <div class="card-bottom-content">
+                <div class="card-img">
+                  <img class="img" src="./Logos/css.webp" alt="HTML Img" />
+                </div>
+                <div class="card-bottom-content">
+                  <div class="card-text-container">
                     <h1 class="course-field overflow-ellipsis">
                       Web Development Languages
                     </h1>
-                    <h1 class="course-title overflow-ellipsis">CSS</h1>
-                    <div class="stars-icon">
-                      <ion-icon class="star-icon" name="star"></ion-icon>
-                      <ion-icon class="star-icon" name="star"></ion-icon>
-                      <ion-icon class="star-icon" name="star"></ion-icon>
-                      <ion-icon class="star-icon" name="star-half"></ion-icon>
-                      <ion-icon
-                        class="star-icon"
-                        name="star-outline"
-                      ></ion-icon>
-                    </div>
-                    <div class="author-name"><p>Author: David Lee</p></div>
+                    <h1 class="course-title two-line-text">CSS</h1>
                   </div>
+
+                  <div class="stars-icon">
+                    <ion-icon class="star-icon" name="star"></ion-icon>
+                    <ion-icon class="star-icon" name="star"></ion-icon>
+                    <ion-icon class="star-icon" name="star"></ion-icon>
+                    <ion-icon class="star-icon" name="star-half"></ion-icon>
+                    <ion-icon class="star-icon" name="star-outline"></ion-icon>
+                  </div>
+                  <div class="author-name"><p>Author: David Lee</p></div>
                 </div>
               </a>
               <a class="card-container" href="./details.html">
@@ -185,10 +187,13 @@
                   />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field overflow-ellipsis">
-                    Web Development Languages
-                  </h1>
-                  <h1 class="course-title overflow-ellipsis">JavaScript</h1>
+                  <div class="card-text-container">
+                    <h1 class="course-field overflow-ellipsis">
+                      Web Development Languages
+                    </h1>
+                    <h1 class="course-title overflow-ellipsis">JavaScript</h1>
+                  </div>
+
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -205,11 +210,14 @@
                   <img class="img" src="./Logos/jquery.png" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field overflow-ellipsis">
-                    Frontend Frameworks and libraries
-                  </h1>
+                  <div class="card-text-container">
+                    <h1 class="course-field overflow-ellipsis">
+                      Frontend Frameworks and libraries
+                    </h1>
 
-                  <h1 class="course-title overflow-ellipsis">jQuery</h1>
+                    <h1 class="course-title overflow-ellipsis">jQuery</h1>
+                  </div>
+
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -225,10 +233,13 @@
                   <img class="img" src="./Logos/angular.png" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field overflow-ellipsis">
-                    Frontend Frameworks and libraries
-                  </h1>
-                  <h1 class="course-title overflow-ellipsis">Angular</h1>
+                  <div class="card-text-container">
+                    <h1 class="course-field overflow-ellipsis">
+                      Frontend Frameworks and libraries
+                    </h1>
+                    <h1 class="course-title overflow-ellipsis">Angular</h1>
+                  </div>
+
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -244,11 +255,14 @@
                   <img class="img" src="./Logos/react.webp" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field overflow-ellipsis">
-                    Frontend Frameworks and libraries
-                  </h1>
+                  <div class="card-text-container">
+                    <h1 class="course-field overflow-ellipsis">
+                      Frontend Frameworks and libraries
+                    </h1>
 
-                  <h1 class="course-title overflow-ellipsis">React</h1>
+                    <h1 class="course-title overflow-ellipsis">React</h1>
+                  </div>
+
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -265,10 +279,13 @@
                   <img class="img" src="./Logos/vuejs.jpeg" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field overflow-ellipsis">
-                    Frontend Frameworks and libraries
-                  </h1>
-                  <h1 class="course-title overflow-ellipsis">Vue.js</h1>
+                  <div class="card-text-container">
+                    <h1 class="course-field overflow-ellipsis">
+                      Frontend Frameworks and libraries
+                    </h1>
+                    <h1 class="course-title overflow-ellipsis">Vue.js</h1>
+                  </div>
+
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -285,11 +302,14 @@
                   <img class="img" src="./Logos/nodejs.webp" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field overflow-ellipsis">
-                    Backend Frameworks and libraries
-                  </h1>
+                  <div class="card-text-container">
+                    <h1 class="course-field overflow-ellipsis">
+                      Backend Frameworks and libraries
+                    </h1>
 
-                  <h1 class="course-title overflow-ellipsis">Node.js</h1>
+                    <h1 class="course-title overflow-ellipsis">Node.js</h1>
+                  </div>
+
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -310,10 +330,13 @@
                   />
                 </div>
                 <div class="card-bottom-content">
-                  <p class="course-field overflow-ellipsis">
-                    Backend Frameworks and libraries
-                  </p>
-                  <h1 class="course-title overflow-ellipsis">Express.js</h1>
+                  <div class="card-text-container">
+                    <p class="course-field overflow-ellipsis">
+                      Backend Frameworks and libraries
+                    </p>
+                    <h1 class="course-title overflow-ellipsis">Express.js</h1>
+                  </div>
+
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -330,10 +353,15 @@
                   <img class="img" src="./Logos/ruby.jpeg" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field overflow-ellipsis">
-                    Backend Frameworks and libraries
-                  </h1>
-                  <h1 class="course-title overflow-ellipsis">Ruby on Rails</h1>
+                  <div class="card-text-container">
+                    <h1 class="course-field overflow-ellipsis">
+                      Backend Frameworks and libraries
+                    </h1>
+                    <h1 class="course-title overflow-ellipsis">
+                      Ruby on Rails
+                    </h1>
+                  </div>
+
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>
@@ -350,10 +378,13 @@
                   <img class="img" src="./Logos/django.jpeg" alt="HTML Img" />
                 </div>
                 <div class="card-bottom-content">
-                  <h1 class="course-field overflow-ellipsis">
-                    Backend Frameworks and libraries
-                  </h1>
-                  <h1 class="course-title overflow-ellipsis">Django</h1>
+                  <div class="card-text-container">
+                    <h1 class="course-field overflow-ellipsis">
+                      Backend Frameworks and libraries
+                    </h1>
+                    <h1 class="course-title overflow-ellipsis">Django</h1>
+                  </div>
+
                   <div class="stars-icon">
                     <ion-icon class="star-icon" name="star"></ion-icon>
                     <ion-icon class="star-icon" name="star"></ion-icon>

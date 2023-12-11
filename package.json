@@ -1,0 +1,22 @@
+{
+  "name": "first-project---html-css-design",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script-index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SD-1023/Ameed-Omar-Project1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SD-1023/Ameed-Omar-Project1/issues"
+  },
+  "homepage": "https://github.com/SD-1023/Ameed-Omar-Project1#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

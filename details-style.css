@@ -119,12 +119,12 @@ body {
 .course-details-type {
   color: var(--brand-secondary);
   font-size: 13px;
-  height: 10px;
+  margin: 0;
 }
 .course-details-title {
   color: #ededed;
   font-size: 18px;
-  height: 15px;
+  margin: 0;
 }
 .star-icon-details {
   color: var(--icon-color);

@@ -58,10 +58,6 @@
     margin-top: 5px;
   }
 
-  .h2-welcoming,
-  .p-welcoming {
-    height: 5px;
-  }
   /**** Parent Container ****/
   .content-container {
     display: flex;
@@ -119,6 +115,10 @@
   .welcoming-container {
     margin-top: 5px;
   }
+  .welcoming-container {
+    margin-top: 20px;
+    margin-left: 15px;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -150,6 +150,7 @@
   }
   /**Welcome Part**/
   .welcoming-container {
-    margin: 5px 15px;
+    margin-top: 20px;
+    margin-left: 15px;
   }
 }
