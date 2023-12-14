@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./favourites.css" />
     <link rel="stylesheet" href="./details-responsive.css" />
     <link rel="stylesheet" href="./common-responsive.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="./app.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito+Sans:opsz,wght@6..12,200&family=Poppins:wght@100;200;400;500;600&family=Raleway:wght@300;900&display=swap"
       rel="stylesheet"
@@ -50,17 +52,17 @@
                   <ion-icon class="dark-mode-icon" name="moon-outline">
                   </ion-icon>
                 </span>
-                <span class="btn-text" onclick="handleDarkMode()">
-                  Dark Mode
-                </span>
+                <span class="btn-text" id="DarkModeText"> Dark Mode </span>
               </button>
-              <button class="btn-fav flex align-center" id="btn-fav">
+              <button
+                class="btn-fav flex align-center"
+                id="btn-fav"
+                onclick="handleFavDisplay()"
+              >
                 <span class="btn-icon">
                   <ion-icon class="fav-icon" name="heart-outline"></ion-icon>
                 </span>
-                <span class="btn-text" onclick="toggleModal()">
-                  Favourites
-                </span>
+                <span class="btn-text"> Favourites </span>
               </button>
             </div>
           </div>
@@ -71,9 +73,7 @@
           <div class="green-left-side"></div>
           <div class="green-right-side"></div>
           <div class="welcoming-container">
-            <a href="index-dynamic.html">
-              <h2 class="h2-welcoming">Welcome to our website!</h2>
-            </a>
+            <h2 class="h2-welcoming">Welcome to our website!</h2>
             <p class="p-welcoming">
               We have a new design that's fresh, modern, and easy to use.
             </p>
@@ -96,312 +96,95 @@
                 <input
                   class="search-engine"
                   placeholder="Search the website..."
+                  onchange="handleSearch()"
+                  id="searchInput"
                 />
               </div>
               <div class="sort-filter-parts sort">
                 <label class="dropdown-label">&nbsp;Sort by:</label>
-                <select class="dropdown-btn" name="filter-options">
-                  <option value="option1">Default</option>
-                  <option value="option2">Most visited</option>
-                  <option value="option3">Newest added</option>
+                <select
+                  class="dropdown-btn"
+                  id="mySortDropdown"
+                  name="filter-options"
+                >
+                  <option value="Default">Default</option>
+                  <option value="Topic-Title">Topic Title</option>
+                  <option value="Author-Name">Author Name</option>
                 </select>
               </div>
 
               <div class="sort-filter-parts end-of-search-bar">
                 <label class="dropdown-label">&nbsp;Filter by:</label>
-                <select class="dropdown-btn" name="filter-options">
-                  <option value="option1">Default</option>
-                  <option value="option2">Course field</option>
-                  <option value="option3">Course title</option>
-                  <option value="option3">Course rate</option>
-                  <option value="option3">Course auther</option>
+                <select
+                  class="dropdown-btn"
+                  id="myFilterdDropdown"
+                  name="filter-options"
+                >
+                  <option value="Default">Default</option>
                 </select>
               </div>
             </div>
           </div>
           <div class="container-num-topics flex justify-center align-center">
             <div class="num-topics global-position flex align-center">
-              <h2 class="num-topics">"24" Web Topics Found</h2>
+              <h2 class="num-topics" id="num-topics"></h2>
             </div>
+          </div>
+
+          <div class="container flex justify-center" id="loadingIndicator">
+            <div class="spinner"></div>
           </div>
           <div class="container flex justify-center">
             <div class="cards-container global-position">
-              <a class="card-container" href="./details.html">
-                <div>
-                  <div class="card-img">
-                    <img class="img" src="./Logos/html.png" alt="HTML Img" />
-                  </div>
-                  <div class="card-bottom-content">
-                    <div class="card-text-container">
-                      <h1 class="course-field overflow-ellipsis">
-                        Web Development Languages
-                      </h1>
-                      <h1 class="course-title overflow-ellipsis">HTML</h1>
+              <template id="card-template">
+                <a
+                  class="card-container"
+                  id="card-container"
+                  onclick="redirectToLinkbyCardId(this.id)"
+                >
+                  <div>
+                    <div class="card-img">
+                      <img
+                        class="img"
+                        id="course-img"
+                        src="./Logos/html.png"
+                        alt="HTML Img"
+                      />
                     </div>
+                    <div class="card-bottom-content">
+                      <div class="card-text-container">
+                        <h1
+                          class="course-field overflow-ellipsis"
+                          id="course-field"
+                        >
+                          Web Development Languages
+                        </h1>
+                        <h1
+                          class="course-title overflow-ellipsis two-line-text"
+                          id="course-title"
+                        >
+                          HTML
+                        </h1>
+                      </div>
 
-                    <div class="stars-icon">
-                      <ion-icon class="star-icon" name="star"></ion-icon>
-                      <ion-icon class="star-icon" name="star"></ion-icon>
-                      <ion-icon class="star-icon" name="star"></ion-icon>
-                      <ion-icon class="star-icon" name="star"></ion-icon>
-                      <ion-icon
-                        class="star-icon"
-                        name="star-outline"
-                      ></ion-icon>
+                      <div class="stars-icon" id="starsIcons"></div>
+
+                      <p class="author-name overflow-ellipsis" id="author-name">
+                        Author: Sarah Smith
+                      </p>
                     </div>
-
-                    <p class="author-name overflow-ellipsis">
-                      Author: Sarah Smith
-                    </p>
                   </div>
-                </div>
-              </a>
-              <a class="card-container" href="./details.html">
-                <div class="card-img">
-                  <img class="img" src="./Logos/css.webp" alt="HTML Img" />
-                </div>
-                <div class="card-bottom-content">
-                  <div class="card-text-container">
-                    <h1 class="course-field overflow-ellipsis">
-                      Web Development Languages
-                    </h1>
-                    <h1 class="course-title two-line-text">CSS</h1>
-                  </div>
-
-                  <div class="stars-icon">
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star-half"></ion-icon>
-                    <ion-icon class="star-icon" name="star-outline"></ion-icon>
-                  </div>
-                  <div class="author-name"><p>Author: David Lee</p></div>
-                </div>
-              </a>
-              <a class="card-container" href="./details.html">
-                <div class="card-img">
-                  <img
-                    class="img"
-                    src="./Logos/javascript.jpg"
-                    alt="HTML Img"
-                  />
-                </div>
-                <div class="card-bottom-content">
-                  <div class="card-text-container">
-                    <h1 class="course-field overflow-ellipsis">
-                      Web Development Languages
-                    </h1>
-                    <h1 class="course-title overflow-ellipsis">JavaScript</h1>
-                  </div>
-
-                  <div class="stars-icon">
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star-outline"></ion-icon>
-                  </div>
-                  <div class="author-name"><p>Author: Emily Chen</p></div>
-                </div>
-              </a>
-
-              <a class="card-container" href="./details.html">
-                <div class="card-img">
-                  <img class="img" src="./Logos/jquery.png" alt="HTML Img" />
-                </div>
-                <div class="card-bottom-content">
-                  <div class="card-text-container">
-                    <h1 class="course-field overflow-ellipsis">
-                      Frontend Frameworks and libraries
-                    </h1>
-
-                    <h1 class="course-title overflow-ellipsis">jQuery</h1>
-                  </div>
-
-                  <div class="stars-icon">
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star-outline"></ion-icon>
-                  </div>
-                  <div class="author-name"><p>Author: John Johnson</p></div>
-                </div>
-              </a>
-              <a class="card-container" href="./details.html">
-                <div class="card-img">
-                  <img class="img" src="./Logos/angular.png" alt="HTML Img" />
-                </div>
-                <div class="card-bottom-content">
-                  <div class="card-text-container">
-                    <h1 class="course-field overflow-ellipsis">
-                      Frontend Frameworks and libraries
-                    </h1>
-                    <h1 class="course-title overflow-ellipsis">Angular</h1>
-                  </div>
-
-                  <div class="stars-icon">
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star-half"></ion-icon>
-                    <ion-icon class="star-icon" name="star-outline"></ion-icon>
-                  </div>
-                  <div class="author-name"><p>Author: Jessica Davis</p></div>
-                </div>
-              </a>
-              <a class="card-container" href="./details.html">
-                <div class="card-img">
-                  <img class="img" src="./Logos/react.webp" alt="HTML Img" />
-                </div>
-                <div class="card-bottom-content">
-                  <div class="card-text-container">
-                    <h1 class="course-field overflow-ellipsis">
-                      Frontend Frameworks and libraries
-                    </h1>
-
-                    <h1 class="course-title overflow-ellipsis">React</h1>
-                  </div>
-
-                  <div class="stars-icon">
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star-outline"></ion-icon>
-                  </div>
-                  <div class="author-name"><p>Author: Daniel Brown</p></div>
-                </div>
-              </a>
-
-              <a class="card-container" href="./details.html">
-                <div class="card-img">
-                  <img class="img" src="./Logos/vuejs.jpeg" alt="HTML Img" />
-                </div>
-                <div class="card-bottom-content">
-                  <div class="card-text-container">
-                    <h1 class="course-field overflow-ellipsis">
-                      Frontend Frameworks and libraries
-                    </h1>
-                    <h1 class="course-title overflow-ellipsis">Vue.js</h1>
-                  </div>
-
-                  <div class="stars-icon">
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star-half"></ion-icon>
-                    <ion-icon class="star-icon" name="star-outline"></ion-icon>
-                  </div>
-                  <div class="author-name"><p>Author: Ava Jones</p></div>
-                </div>
-              </a>
-
-              <a class="card-container" href="./details.html">
-                <div class="card-img">
-                  <img class="img" src="./Logos/nodejs.webp" alt="HTML Img" />
-                </div>
-                <div class="card-bottom-content">
-                  <div class="card-text-container">
-                    <h1 class="course-field overflow-ellipsis">
-                      Backend Frameworks and libraries
-                    </h1>
-
-                    <h1 class="course-title overflow-ellipsis">Node.js</h1>
-                  </div>
-
-                  <div class="stars-icon">
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star-outline"></ion-icon>
-                  </div>
-                  <div class="author-name"><p>Author: Michael Kim</p></div>
-                </div>
-              </a>
-
-              <a class="card-container" href="./details.html">
-                <div class="card-img">
-                  <img
-                    class="img"
-                    src="./Logos/expressjs.webp"
-                    alt="HTML Img"
-                  />
-                </div>
-                <div class="card-bottom-content">
-                  <div class="card-text-container">
-                    <p class="course-field overflow-ellipsis">
-                      Backend Frameworks and libraries
-                    </p>
-                    <h1 class="course-title overflow-ellipsis">Express.js</h1>
-                  </div>
-
-                  <div class="stars-icon">
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star-outline"></ion-icon>
-                  </div>
-                  <div class="author-name"><p>Author: Sophia Rodriguez</p></div>
-                </div>
-              </a>
-
-              <a class="card-container" href="./details.html">
-                <div class="card-img">
-                  <img class="img" src="./Logos/ruby.jpeg" alt="HTML Img" />
-                </div>
-                <div class="card-bottom-content">
-                  <div class="card-text-container">
-                    <h1 class="course-field overflow-ellipsis">
-                      Backend Frameworks and libraries
-                    </h1>
-                    <h1 class="course-title overflow-ellipsis">
-                      Ruby on Rails
-                    </h1>
-                  </div>
-
-                  <div class="stars-icon">
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star-outline"></ion-icon>
-                    <ion-icon class="star-icon" name="star-outline"></ion-icon>
-                  </div>
-                  <div class="author-name"><p>Author: William Lee</p></div>
-                </div>
-              </a>
-              <!--/*Newest added*/-->
-              <a class="card-container" href="./details.html">
-                <div class="card-img">
-                  <img class="img" src="./Logos/django.jpeg" alt="HTML Img" />
-                </div>
-                <div class="card-bottom-content">
-                  <div class="card-text-container">
-                    <h1 class="course-field overflow-ellipsis">
-                      Backend Frameworks and libraries
-                    </h1>
-                    <h1 class="course-title overflow-ellipsis">Django</h1>
-                  </div>
-
-                  <div class="stars-icon">
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star"></ion-icon>
-                    <ion-icon class="star-icon" name="star-outline"></ion-icon>
-                  </div>
-                  <div class="author-name"><p>Author: Olivia Martinez</p></div>
-                </div>
-              </a>
+                </a>
+              </template>
             </div>
           </div>
         </div>
 
         <div class="favourites-container" id="favourites-container">
           <div class="favourites-content">
-            <h2 class="fav-topics-title">My Favourites Topics</h2>
+            <h2 class="fav-topics-title">
+              <strong> My Favourite Topics</strong>
+            </h2>
             <div class="favs-card">
               <div class="fav-card-content">
                 <div class="card-fav-img">
@@ -442,31 +225,5 @@
       </footer>
     </div>
   </body>
-  <script>
-    function handleDarkMode() {
-      console.log("inside dark mode");
-
-      const darkModeToggle = document.getElementById("darkModeToggle");
-      darkModeToggle.onclick = function () {
-        document.body.classList.toggle("dark-theme");
-      };
-    }
-    /*Favouriets button*/
-
-    const favBtn = document.getElementById("btn-fav");
-    const favLayer = document.getElementById("favourites-container");
-
-    favBtn.addEventListener("click", () => {
-      toggleModal();
-    });
-
-    function toggleModal() {
-      console.log("inside fav btn and " + favLayer.style.display);
-      if (favLayer.style.display == "block") {
-        favLayer.style.display = "none";
-      } else {
-        favLayer.style.display = "block";
-      }
-    }
-  </script>
+  <script src="./headerBtn.js"></script>
 </html>

@@ -9,9 +9,14 @@
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./details-style.css" />
     <link rel="stylesheet" href="./details-responsive.css" />
+    <link rel="stylesheet" href="./favourites.css" />
+    <script src="./headerBtn.js"></script>
+
     <link rel="stylesheet" href="./common-responsive.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="./details.js"></script>
+    <script src="./headerBtn.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Nunito+Sans:opsz,wght@6..12,200&family=Poppins:wght@100;200;400;500;600&family=Raleway:wght@300;900&display=swap"
       rel="stylesheet"
@@ -37,16 +42,6 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <script>
-      function handleDarkMode() {
-        console.log("inside dark mode");
-
-        const darkModeToggle = document.getElementById("darkModeToggle");
-        darkModeToggle.onclick = function () {
-          document.body.classList.toggle("dark-theme");
-        };
-      }
-    </script>
 
     <title>Details Page</title>
   </head>
@@ -55,7 +50,7 @@
       <header>
         <div class="top-flex-container flex justify-center">
           <div class="container-bar global-position flex align-center">
-            <a href="index.html">
+            <a href="./index.html">
               <h2 class="web-topics-details">Web Topics</h2>
             </a>
             <div class="bar-btns">
@@ -64,11 +59,13 @@
                   <ion-icon class="dark-mode-icon" name="moon-outline">
                   </ion-icon>
                 </span>
-                <span class="btn-text" onclick="handleDarkMode()">
-                  Dark Mode
-                </span>
+                <span class="btn-text" id="DarkModeText"> Dark Mode </span>
               </button>
-              <button class="btn-fav flex align-center">
+              <button
+                class="btn-fav flex align-center"
+                id="btn-fav"
+                onclick="handleFavDisplay()"
+              >
                 <span class="btn-icon">
                   <ion-icon class="fav-icon" name="heart-outline"></ion-icon>
                 </span>
@@ -92,132 +89,124 @@
         </div>
         <div class="details-container">
           <div class="content-container">
-            <div class="info-container">
-              <div class="info">
-                <h2 class="course-details-type overflow-ellipsis">
-                  Web Development Languages
-                </h2>
-                <!-- Dynamic--->
-                <h1 class="course-details-title">HTML</h1>
-                <!-- Dynamic--->
-                <div class="stars-icons-container">
-                  <ion-icon class="star-icon-details" name="star"></ion-icon>
-                  <ion-icon class="star-icon-details" name="star"></ion-icon>
-                  <ion-icon class="star-icon-details" name="star"></ion-icon>
-                  <ion-icon class="star-icon-details" name="star"></ion-icon>
-                  <ion-icon
-                    class="star-icon-details"
-                    name="star-outline"
-                  ></ion-icon>
-                </div>
-                <!-- Dynamic--->
-
-                <p class="course-details-description">
-                  HTML (Hypertext Markup Language) is the standard markup
-                  language for creating web pages and other information that can
-                  be displayed in a web browser. It provides a structure for
-                  content and defines how it should be displayed on a web page,
-                  including text, images , and multimedia. HTML is essential for
-                  creating static web pages and is a foundational technology for
-                  the World Wide Web.
-                </p>
-              </div>
+            <div class="container flex justify-center" id="loadingIndicator">
+              <div class="spinner"></div>
             </div>
-
-            <div class="card-details-container">
-              <div class="card-details">
-                <div class="card-img">
-                  <img src="./Logos//javascript.jpg" class="img-details" />
-                </div>
-                <div class="card-details-content">
-                  <div class="card-auther-by">
-                    <span class="course-title-auther overflow-ellipsis">
-                      <strong> HTML </strong>
-                      by
-                      <a href="www.google.com">Sarah Smith</a>
-                    </span>
+            <h1
+              id="errorMsgDataFaild"
+              style="display: none; text-align: center"
+            >
+              Something went wrong. The course details did not load.
+            </h1>
+            <div id="allDetailsContent">
+              <div class="info-container">
+                <div class="info">
+                  <h2
+                    class="course-details-type overflow-ellipsis"
+                    id="category"
+                  ></h2>
+                  <!-- Dynamic--->
+                  <h1 class="course-details-title" id="topic"></h1>
+                  <!-- Dynamic--->
+                  <div class="stars-icons-container">
+                    <ion-icon class="star-icon-details" name="star"></ion-icon>
+                    <ion-icon class="star-icon-details" name="star"></ion-icon>
+                    <ion-icon class="star-icon-details" name="star"></ion-icon>
+                    <ion-icon class="star-icon-details" name="star"></ion-icon>
+                    <ion-icon
+                      class="star-icon-details"
+                      name="star-outline"
+                    ></ion-icon>
                   </div>
-                  <div class="card-box">
-                    <p class="card-box-q">Interested about this topic?</p>
-                    <button class="card-box-btn">
-                      Add to Favourites
-                      <span
-                        ><ion-icon
-                          name="heart-outline"
-                          class="fav-heart"
-                        ></ion-icon>
+                  <!-- Dynamic--->
+
+                  <p class="course-details-description" id="description"></p>
+                </div>
+              </div>
+
+              <div class="card-details-container">
+                <div class="card-details">
+                  <div class="card-img">
+                    <img src="" class="img-details" id="image" />
+                  </div>
+                  <div class="card-details-content">
+                    <!--Dynamic Content -->
+                    <div class="card-auther-by">
+                      <span class="course-title-auther">
+                        <strong id="topic_card"> </strong>
+                        by
+                        <a href="www.google.com" id="author"></a>
                       </span>
-                    </button>
-                    <p class="card-box-footer">Unlimited Credits</p>
+                    </div>
+                    <div class="card-box">
+                      <p class="card-box-q">Interested about this topic?</p>
+                      <button class="card-box-btn" id="addToFavouriteBtn">
+                        <span id="addToFavText"> Add to Favourites </span>
+                        <span id="AddToFavHeart"
+                          ><ion-icon
+                            name="heart-outline"
+                            class="fav-heart"
+                          ></ion-icon>
+                        </span>
+                      </button>
+                      <p class="card-box-footer">Unlimited Credits</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="sub-topics-container">
-              <div class="sub-topics-table">
-                <table>
-                  <tr>
-                    <th>HTML Sub Topics</th>
-                  </tr>
-                  <tr>
-                    <td>
-                      <ion-icon
-                        name="checkmark-circle-outline"
-                        class="checkmark-circle-outline"
-                      ></ion-icon>
-                      HTML syntax and structure
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <ion-icon
-                        name="checkmark-circle-outline"
-                        class="checkmark-circle-outline"
-                      ></ion-icon>
-                      HTML elements and attributes
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <ion-icon
-                        name="checkmark-circle-outline"
-                        class="checkmark-circle-outline"
-                      ></ion-icon>
-                      HTML forms and input elements
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <ion-icon
-                        name="checkmark-circle-outline"
-                        class="checkmark-circle-outline"
-                      ></ion-icon>
-                      HTML tabels and lists
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <ion-icon
-                        name="checkmark-circle-outline"
-                        class="checkmark-circle-outline"
-                      ></ion-icon>
-                      HTML multimedia elements (audio, vedio, images)
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <ion-icon
-                        name="checkmark-circle-outline"
-                        class="checkmark-circle-outline"
-                      ></ion-icon>
-                      HTML accessibilityand semantic markup
-                    </td>
-                  </tr>
-                </table>
+              <div class="sub-topics-container">
+                <div class="sub-topics-table">
+                  <table id="dynamic-table">
+                    <thead>
+                      <tr>
+                        <th id="topic_table">HTML Sub Topics</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="favourites-container" id="favourites-container">
+          <div class="favourites-content">
+            <h2 class="fav-topics-title">
+              <strong> My Favourite Topics</strong>
+            </h2>
+            <template id="fav-template">
+              <div class="favs-card">
+                <div class="fav-card-content">
+                  <div class="card-fav-img">
+                    <img
+                      class="fav-img"
+                      src="./Logos/react.webp"
+                      alt="HTML Img"
+                      id="favImg"
+                    />
+                  </div>
+                  <div class="card-fav-bottom">
+                    <h1 class="fav-title overflow-ellipsis" id="favTopic">
+                      React
+                    </h1>
+
+                    <div class="stars-icon-fav">
+                      <ion-icon class="star-icon-fav" name="star"></ion-icon>
+                      <ion-icon class="star-icon-fav" name="star"></ion-icon>
+                      <ion-icon class="star-icon-fav" name="star"></ion-icon>
+                      <ion-icon class="star-icon-fav" name="star"></ion-icon>
+                      <ion-icon
+                        class="star-icon-fav"
+                        name="star-outline"
+                      ></ion-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
         </div>
       </main>
       <footer>
@@ -231,4 +220,5 @@
       </footer>
     </div>
   </body>
+  <script src="./headerBtn.js"></script>
 </html>

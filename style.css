@@ -75,6 +75,14 @@ p {
   font-weight: 400;
   border-radius: 5px;
 }
+.btn-fav,
+.btn-dark:hover {
+  cursor: pointer;
+}
+.btn-icon {
+  display: flex;
+  align-items: center;
+}
 .dark-mode-icon,
 .fav-icon {
   margin-right: 5px;
@@ -304,7 +312,8 @@ a {
   margin-top: 4px;
   margin-bottom: 10px;
 }
-.star-icon {
+.star-icon,
+.icon-inner {
   color: #e59b1e;
   margin-right: -3px;
 }
@@ -312,6 +321,7 @@ a {
   font-weight: 200;
   font-size: 12px;
 }
+
 /**favourites-container**/
 .favourites-container {
   display: none;
@@ -319,41 +329,40 @@ a {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 150px;
-  z-index: 1;
+  height: 160px;
+  /* z-index: 1; */
   background-color: var(--bg_default);
 }
 .favourites-content {
-  padding: 5px 35px;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+  padding: 3px 35px;
 }
 .fav-topics-title {
-  font-size: 13px;
+  font-size: 14px;
+  margin: 7px 0px;
 }
 /*fav img**/
 .fav-card-content {
   display: flex;
   flex-direction: column;
-  width: 100px;
-  height: 90px;
+  width: 135px;
+  height: 115px;
   box-shadow: 0px 0px 8px rgba(51, 51, 51, 0.3);
 }
 .fav-img {
-  max-width: 100px;
-  max-height: 85px;
+  max-width: 135px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+  background-color: white;
 }
 .card-fav-bottom {
-  margin-top: -12px;
-  padding: 1px 5px;
+  padding: 0px 5px;
+  margin-top: -2px;
 }
 .fav-title {
   font-size: small;
+  margin: 0px;
 }
 .stars-icon-fav {
-  margin-top: -10px;
 }
 .star-icon-fav {
   color: #e59b1e;
@@ -373,4 +382,25 @@ a {
   color: var(--heart-color);
   display: flex;
   scale: 1.2;
+}
+
+#loadingIndicator {
+  margin: 150px 0;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #3498db;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

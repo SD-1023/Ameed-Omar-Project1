@@ -1,5 +1,7 @@
+// Fetch Data from API
 function fetchData() {
   const apiUrl = "https://tap-web-1.herokuapp.com/topics/list";
+  const loadingIndicator = document.getElementById("loadingIndicator");
 
   return fetch(apiUrl)
     .then((response) => {
@@ -14,37 +16,67 @@ function fetchData() {
     })
     .catch((error) => {
       console.error("Error fetching data:", error.message);
+      document.getElementById("num-topics").innerText =
+        "Something went wrong. Web topics failed to load.";
     });
 }
+
 let dataList = [];
 let dynamicCategories = [];
 
-// This is the function that draw cards in viweport
+// This is the function that render cards in viweport
 function render(data) {
-  // First:  you should ensure that past draws are deleted
-  const cardTemplate = document.getElementById("card-template");
-  try {
-    for (const el of cardTemplate.parentElement.querySelectorAll(
-      "a.card-container"
-    )) {
-      el.remove();
+  //if find data, hide loading inductor
+  if (data) {
+    loadingIndicator.style.display = "none";
+    // Display nums of topics found on data fethced bt API
+    document.getElementById("num-topics").innerText =
+      '"' + data.length + '"' + " Web Topics Found";
+
+    // First:  You should ensure that past draws are deleted
+    const cardTemplate = document.getElementById("card-template");
+    try {
+      for (const el of cardTemplate.parentElement.querySelectorAll(
+        "a.card-container"
+      )) {
+        el.remove();
+      }
+    } catch {
+      console.log("No cards to remove");
     }
-  } catch {
-    console.log("No cards to remove");
+    // Sec:  You can start drawing using a none dispaly template
+
+    //Create node for each card in data
+    data.forEach((item) => {
+      const newNode = cardTemplate.content.cloneNode(true);
+      newNode.querySelector("#course-field").innerText = item.category;
+      newNode.querySelector("#course-title").innerText = item.topic;
+      newNode.querySelector("#course-img").src = "./Logos/" + item.image;
+      newNode.querySelector("#course-img").alt = item.image;
+      newNode.querySelector("#author-name").innerText = item.name;
+      newNode.querySelector("#card-container").id = item.id;
+      newNode.querySelector("#starsIcons").innerHTML = drawStarsIcon(
+        item.rating
+      );
+      //Appened a new card for parent
+      cardTemplate.parentElement.append(newNode);
+    });
+    // Set the href for each card based on its ID
+    document.querySelectorAll("#card-container").forEach(function (card) {
+      card.addEventListener("click", function () {
+        // Get the card's ID
+        var cardId = card.id;
+        console.log("This card ID is: " + cardId);
+        // Generate the corresponding href based on the card's ID
+        var href = "./details.html/" + cardId;
+        // Navigate to the generated href
+        window.location.href = href;
+      });
+    });
+  } // No data found
+  else {
+    loadingIndicator.style.display = "none";
   }
-  // Sec:  you can start drawing using a none dispaly tamplate
-  // Display nums of topics found
-  document.getElementById("num-topics").innerText =
-    '"' + data.length + '"' + " Web Topics Found";
-  data.forEach((item) => {
-    const newNode = cardTemplate.content.cloneNode(true);
-    newNode.querySelector("#course-field").innerText = item.category;
-    newNode.querySelector("#course-title").innerText = item.topic;
-    newNode.querySelector("#course-img").src = "./Logos/" + item.image;
-    newNode.querySelector("#course-img").alt = item.image;
-    newNode.querySelector("#author-name").innerText = item.name;
-    cardTemplate.parentElement.append(newNode);
-  });
 }
 
 fetchData().then((data) => {
@@ -63,13 +95,13 @@ fetchData().then((data) => {
     const searchTerm = searchInput.value;
 
     // Filter data based on the search term
-    const filteredData = FilterdDataList.filter((item) => {
+    const filteredDataBySearch = FilterdDataList.filter((item) => {
       console.log("handle search return: ");
       if (item.topic.toLowerCase().includes(searchTerm.toLowerCase()))
         return true;
       else return false;
     });
-    render(filteredData);
+    render(filteredDataBySearch);
   }
   var SortedDataList = dataList;
   var FilterdDataList = dataList;
@@ -88,7 +120,8 @@ fetchData().then((data) => {
     // Topic Name(option2)
     else if (selectedOption == "Topic-Title") {
       SortedDataList = FilterdDataList.sort((a, b) => {
-        const nameA = a.topic.toUpperCase(); // Convert names to uppercase for case-insensitive sorting
+        // Convert names to uppercase for case-insensitive sorting
+        const nameA = a.topic.toUpperCase();
         const nameB = b.topic.toUpperCase();
 
         if (nameA < nameB) {
@@ -97,13 +130,13 @@ fetchData().then((data) => {
         if (nameA > nameB) {
           return 1;
         }
-        return 0; // Names are equal
+        return 0;
       });
       render(SortedDataList);
       //Author Name (option3)
     } else if (selectedOption == "Author-Name") {
       SortedDataList = FilterdDataList.sort((a, b) => {
-        const nameA = a.name.toUpperCase(); // Convert names to uppercase for case-insensitive sorting
+        const nameA = a.name.toUpperCase();
         const nameB = b.name.toUpperCase();
 
         if (nameA < nameB) {
@@ -112,9 +145,8 @@ fetchData().then((data) => {
         if (nameA > nameB) {
           return 1;
         }
-        return 0; // Names are equal
+        return 0;
       });
-      // console.log(dataList);
       render(SortedDataList);
     }
   });
@@ -156,3 +188,21 @@ fetchData().then((data) => {
     render(FilterdDataList);
   });
 });
+function redirectToLinkbyCardId(cardId) {
+  console.log("Clicked card ID: " + cardId);
+  var redirectLink = `./details.html?id=${cardId}`;
+  window.location.href = redirectLink;
+}
+
+function drawStarsIcon(rating) {
+  let consideredRating = Math.round(rating);
+  let stars = "";
+  for (i = 0; i < consideredRating; i++) {
+    stars += ` <ion-icon class="star-icon" name="star" style="margin-left="4px"></ion-icon>`;
+  }
+  if (rating - (consideredRating - 1) > 0.5)
+    stars += ` <ion-icon class="star-icon" name="star-outline"></ion-icon>`;
+  if (consideredRating == 3)
+    stars += ` <ion-icon class="star-icon" name="star-outline"></ion-icon>`;
+  return stars;
+}
